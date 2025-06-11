@@ -1,5 +1,5 @@
 # waze-discuss-profile-settings-plus
-Add quality-of-life features to the profile settings page on Waze Discuss.
+Adds quality-of-life features to the profile settings page on Waze Discuss.
 
 ## Features
 * Resizes biography text area, signature text area and preview for easier editing.
