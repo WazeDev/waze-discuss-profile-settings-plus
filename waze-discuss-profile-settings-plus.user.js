@@ -7,6 +7,7 @@
 // @match        https://www.waze.com/discuss/u/*/preferences/profile
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waze.com
 // @grant        none
+// @license      MIT
 // ==/UserScript==
 
 (function() {
