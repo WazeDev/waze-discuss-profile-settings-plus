@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Waze Discuss Profile Settings+
 // @namespace    https://github.com/WazeDev/waze-discuss-profile-settings-plus
-// @version      0.0.1
+// @version      0.0.2
 // @description  Add quality-of-life features to the profile settings page on Waze Discuss.
 // @author       Gavin Canon-Phratsachack (https://github.com/gncnpk)
 // @match        https://www.waze.com/discuss/u/*/preferences/profile
@@ -25,6 +25,7 @@
         signatureTextArea = document.getElementsByClassName("ember-text-area ember-view d-editor-input")[1];
       signatureTextArea.style.height = "80%";
       signatureButtonBar = document.getElementsByClassName("d-editor-button-bar")[1];
+      console.log("Resized signature and biography elements!")
       addWMESignatureButtons()
   }
 }
@@ -88,6 +89,7 @@
         icon = `https://s.waze.tools/c${stats.rank+1}.png`
         title = `Rank ${stats.rank+1} Badge`
         generateButton(signatureButtonBar, title, icon)
+        console.log("Added buttons for badges to signature editor!")
     }
     function appendIconToSignature(url) {
         signatureTextArea.value += `[img]${url}[/img]`
