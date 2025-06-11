@@ -2,7 +2,7 @@
 // @name         Waze Discuss Profile Settings+
 // @namespace    https://github.com/WazeDev/waze-discuss-profile-settings-plus
 // @version      0.0.3
-// @description  Add quality-of-life features to the profile settings page on Waze Discuss.
+// @description  Adds quality-of-life features to the profile settings page on Waze Discuss.
 // @author       Gavin Canon-Phratsachack (https://github.com/gncnpk)
 // @match        https://www.waze.com/discuss/u/*/preferences/profile
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waze.com
