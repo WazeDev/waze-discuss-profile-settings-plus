@@ -6,7 +6,7 @@ Adds quality-of-life features to the profile settings page on Waze Discuss.
 * Resizes biography editor.
 * Resizes signature editor & preview.
 ### Signature Editor
-* Adds buttons to add badges to your signature by checking your editor stats.
+* Adds buttons to add badges to your signature or biography by checking your editor stats.
 ##### Supported Badges
 - Area Manager
 - Total Edits
