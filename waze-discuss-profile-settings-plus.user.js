@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Waze Discuss Profile Settings+
 // @namespace    https://github.com/WazeDev/waze-discuss-profile-settings-plus
-// @version      0.0.4
+// @version      0.0.5
 // @description  Add quality-of-life features to the profile settings page on Waze Discuss.
 // @author       Gavin Canon-Phratsachack (https://github.com/gncnpk)
 // @match        https://www.waze.com/discuss/u/*/preferences/profile
@@ -18,6 +18,7 @@
     let signatureSection;
     let signatureTextArea;
     let signatureButtonBar;
+    let bioButtonBar;
     document.onreadystatechange = function() {
         if (document.readyState == "complete") {
             bioSection = document.getElementsByClassName("controls bio-composer input-xxlarge")[0];
@@ -27,8 +28,9 @@
             signatureTextArea = document.getElementsByClassName("ember-text-area ember-view d-editor-input")[1];
             signatureTextArea.style.height = "80%";
             signatureButtonBar = document.getElementsByClassName("d-editor-button-bar")[1];
+            bioButtonBar = document.getElementsByClassName("d-editor-button-bar")[0];
             console.log("Resized signature and biography elements!")
-            addWMESignatureButtons()
+            addWMEBadgeButtons()
         }
     }
 
@@ -49,7 +51,7 @@
         });
         element.append(button);
     }
-    async function addWMESignatureButtons() {
+    async function addWMEBadgeButtons() {
         const stats = await getWMEStats();
         let icon;
         let title;
@@ -58,28 +60,34 @@
             icon = "https://s.waze.tools/am.png"
             title = "AM Badge"
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         }
         // Total Edits badge
         if (stats.totalEdits >= 10000) {
             icon = "https://s.waze.tools/s0010.png";
             title = "10k Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.totalEdits >= 50000) {
             icon = "https://s.waze.tools/s0050.png";
             title = "50k Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.totalEdits >= 100000) {
             icon = "https://s.waze.tools/s0100.png";
             title = "100k Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.totalEdits >= 300000) {
             icon = "https://s.waze.tools/s0300.png";
             title = "300k Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.totalEdits >= 500000) {
             icon = "https://s.waze.tools/s0500.png";
             title = "500k Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.totalEdits >= 1000000) {
             icon = "https://s.waze.tools/s1000.png";
             title = "1M Total Edits";
@@ -88,46 +96,56 @@
             icon = "https://s.waze.tools/s1500.png";
             title = "1.5M Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.totalEdits >= 2000000) {
             icon = "https://s.waze.tools/s2000.png";
             title = "2M Total Edits";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         }
         // Forum posts badge
         if (stats.forumPosts >= 50) {
             icon = "https://s.waze.tools/p0050.png";
             title = "50 Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.forumPosts >= 100) {
             icon = "https://s.waze.tools/p0100.png";
             title = "100 Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.forumPosts >= 500) {
             icon = "https://s.waze.tools/p0500.png";
             title = "500 Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.forumPosts >= 1000) {
             icon = "https://s.waze.tools/p1000.png";
             title = "1k Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.forumPosts >= 2000) {
             icon = "https://s.waze.tools/p2000.png";
             title = "2k Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.forumPosts >= 10000) {
             icon = "https://s.waze.tools/p010k.png";
             title = "10k Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         } else if (stats.forumPosts >= 50000) {
             icon = "https://s.waze.tools/p050k.png";
             title = "50k Forum Posts";
             await generateButton(signatureButtonBar, title, icon)
+            await generateButton(bioButtonBar, title, icon)
         }
         // Rank badge
         icon = `https://s.waze.tools/c${stats.rank+1}.png`
         title = `Rank ${stats.rank+1} Badge`
         await generateButton(signatureButtonBar, title, icon)
-        console.log("Added buttons for badges to signature editor!")
+        await generateButton(bioButtonBar, title, icon)
+        console.log("Added buttons for badges to signature editor and biography editor!")
     }
 
     function appendIconToSignature(url) {
