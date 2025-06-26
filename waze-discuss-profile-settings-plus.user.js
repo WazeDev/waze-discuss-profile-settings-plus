@@ -8,6 +8,7 @@
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=waze.com
 // @grant        none
 // @license      MIT
+// @contributionURL https://github.com/WazeDev/Thank-The-Authors
 // @downloadURL https://update.greasyfork.org/scripts/539152/Waze%20Discuss%20Profile%20Settings%2B.user.js
 // @updateURL https://update.greasyfork.org/scripts/539152/Waze%20Discuss%20Profile%20Settings%2B.meta.js
 // ==/UserScript==
